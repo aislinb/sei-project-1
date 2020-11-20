@@ -1,3 +1,9 @@
+// * A #start button should start the game...
+// * When the game starts:
+// * Tell player 1 to take their turn by selecting a column
+// * Add event listener for selecting a column
+
+
 function init() {
 
   const grid = document.querySelector('.grid')
