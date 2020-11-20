@@ -1,7 +1,24 @@
 function init() {
 
-  console.log('js is up and running')
+  const grid = document.querySelector('.grid')
+  console.log(grid)
+  
+  const width = 7
+  const height = 6
+  const cellCount = width * height
+  const cells = []
 
+
+// * Make the grid *
+function createGrid() {
+  for (let i=0; i < cellCount; i++) {
+    const cell = document.createElement('div')
+    cell.textContent = i
+    grid.appendChild(cell)
+    cells.push(cell)
+  }
+}
+createGrid()
 
 
 }
