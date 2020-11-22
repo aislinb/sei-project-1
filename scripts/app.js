@@ -6,6 +6,8 @@
 
 function init() {
 
+  // * Global Variables *
+
   const grid = document.querySelector('.grid')
   console.log(grid)
   
@@ -14,6 +16,11 @@ function init() {
   const cellCount = width * height
   const cells = []
 
+  let currentPlayer = 'x'
+  let winner = null
+  let isEndGame = false
+
+  // cell chosen by currentPlayer = 
 
 // * Make the grid *
 function createGrid() {
@@ -23,6 +30,18 @@ function createGrid() {
     grid.appendChild(cell)
     cells.push(cell)
   }
+
+// * Display empty and taken cells in board *
+
+// * Handle player's turn () *
+// ------player selects column 
+
+// * Display empty and taken cells in board [again] *
+
+// * Check if game has been won * (either horizontally, vertically, diagonally)
+// -----    == if logic is true (boolean) = ENDGAME
+
+// * switchPlayer *
 }
 createGrid()
 
