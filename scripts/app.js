@@ -45,7 +45,6 @@ function init() {
   const rowFour = [cells[28],cells[29],cells[30],cells[31],cells[32],cells[33],cells[34]]
   const rowFive = [cells[35],cells[36],cells[37],cells[38],cells[39],cells[40],cells[41]]
   const rowSix = [cells[42],cells[43],cells[44],cells[45],cells[46],cells[47],cells[48]]
-  const rows = [topRow, rowOne, rowTwo, rowThree, rowFour, rowFive, rowSix]
 
   console.log('topRow is', topRow)
   console.log('rowOne is', rowOne)
@@ -64,7 +63,7 @@ function init() {
 
   
   
-
+ 
   // * Display empty and taken cells in board *
 
   function displayBoard() {
@@ -81,7 +80,7 @@ function init() {
 
 // function handleCellMouseOver(event){
 //   if (event.target.class === 'column0') {
-//     ///
+    
 //   }
 //   const cells = event.target
 //   console.log(cells)
@@ -105,7 +104,7 @@ const handleCellMouseOver = (event) => {
 }
 createGrid()
 
-//* event listeners - loop through all cells (including invisible top row) 
+//* event listeners - loop through all cells (including 'invisible' top row) 
 
 cells.addEventListener('mouseover', handleCellMouseOver)
 
