@@ -12,13 +12,25 @@ function init() {
   console.log(grid)
   
   const width = 7
-  const height = 6
+  const height = 7
   const cellCount = width * height
   const cells = []
+  const playerOne = 'playerOneCoin'
+  const playerTwo = 'playerTwoCoin'
+  
 
-  let currentPlayer = 'x'
-  let winner = null
-  let isEndGame = false
+  
+  
+  // * Columns
+  // const topRow = 
+  
+  
+
+  // let currentPlayer = playerOne
+  // let winner = null
+  // let isEndGame = false
+  // let coinRow = null
+  // let coinColumn = null
 
   // cell chosen by currentPlayer = 
 
@@ -30,11 +42,33 @@ function createGrid() {
     grid.appendChild(cell)
     cells.push(cell)
   }
+console.log(cells)
+
+  // * Rows
+  // const firstRow = [cells[0],cells[1],cells[2],cells[3],cells[4],cells[5],cells[6]]
+  // const secondRow = cells[7-13]
+  // const thirdRow = cells[14-20]
+  // const fourthRow = cells[21-27]
 
 // * Display empty and taken cells in board *
 
+function displayBoard() {
+
+
+}
+
 // * Handle player's turn () *
 // ------player selects column 
+// event listener click - column 1 - 7 - loop through all cells 
+
+const handleCellHover = event => {
+  const cell = event.target
+ 
+}
+
+
+
+
 
 // * Display empty and taken cells in board [again] *
 
@@ -42,8 +76,15 @@ function createGrid() {
 // -----    == if logic is true (boolean) = ENDGAME
 
 // * switchPlayer *
+
+
 }
 createGrid()
+
+//* event listeners - loop through all cells (including invisible top row) 
+
+start.addEventListener('click', startGame)
+cells.forEach(cell => cell.addEventListener('click', handleCellHover))
 
 
 }

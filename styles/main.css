@@ -27,12 +27,17 @@ body {
   width: 14%;
 }
 
+.cellEmpty {
+  background: palegoldenrod;
+}
+
 .playerOneCoin {
 background: red;
+border-radius: 10px;
 
 }
 
 .playerOneCoin {
 background: yellow;
-  
+border-radius: 10px;
 }
