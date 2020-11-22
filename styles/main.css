@@ -20,6 +20,10 @@ body {
   width: 700px;
 }
 
+.topRow {
+  background: white;
+}
+
 .grid div {
   border: 1px solid lightgrey;
   flex-grow: 1;
