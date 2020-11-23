@@ -1,5 +1,5 @@
 body {
-  background: orange;
+  background: lightblue;
 }
 
 .grid-wrapper {
@@ -20,20 +20,21 @@ body {
   width: 700px;
 }
 
+.grid div {
+  border: 4px solid blue;
+  flex-grow: 1;
+  height: 13%;
+  width: 13%;
+}
+
 .topRow {
   background: white;
+  border-color: beige;
 }
 
-.grid div {
-  border: 1px solid lightgrey;
-  flex-grow: 1;
-  height: 14%;
-  width: 14%;
-}
-
-.cellEmpty {
-  background: palegoldenrod;
-}
+/* .cellEmpty {
+  background: blue;
+} */
 
 .playerOneCoin {
 background-color: yellow;

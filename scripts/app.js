@@ -6,7 +6,7 @@
 
 function init() {
 
-  // * Global Variables *
+  // * Global Variables * //
 
   const grid = document.querySelector('.grid')
   console.log(grid)
@@ -15,57 +15,113 @@ function init() {
   const height = 7
   const cellCount = width * height
   const cells = []
-  const playerOne = 'playerOneCoin'
-  const playerTwo = 'playerTwoCoin'
-  const topRow = 'topRow'
 
-  let currentPlayer = playerOne
-  let winner = null 
+  const topRowClass = 'topRow'
+  const rowOneClass= 'rowOne'
+  const rowTwoClass= 'rowTwo'
+  const rowThreeClass= 'rowThree'
+  const rowFourClass= 'rowFour'
+  const rowFiveClass= 'rowFive'
+  const rowSixClass= 'rowSix'
+
+  const column0Class = 'column0'
+  const column1Class = 'column1'
+  const column2Class = 'column2'
+  const column3Class = 'column3'
+  const column4Class = 'column4'
+  const column5Class = 'column5'
+  const column6Class = 'column6'
+
+  let currentPlayer = 'playerOneCoin'
+  let winner = null
   let isEndGame = false
   let coinRow = null
   let coinColumn = null
   let playerStart = null
 
-  // cell chosen by currentPlayer = 
+  // * Make the grid * //
 
-  // * Make the grid *
   function createGrid() {
     for (let i=0; i < cellCount; i++) {
       const cell = document.createElement('div')
       cell.textContent = i
+      cell.setAttribute('data-id', i)
       grid.appendChild(cell)
       cells.push(cell)
     }
     console.log(cells)
+    defineRowClasses()
+    defineColumnClasses()
   }
 
-  // * Rows /// need to create classes for the below arrays instead of consts
-  // const topRow = [cells[0],cells[1],cells[2],cells[3],cells[4],cells[5],cells[6]]
-  // const rowOne = [cells[7],cells[8],cells[9],cells[10],cells[11],cells[12],cells[13]]
-  // const rowTwo = [cells[14],cells[15],cells[16],cells[17],cells[18],cells[19],cells[20]]
-  // const rowThree = [cells[21],cells[22],cells[23],cells[24],cells[25],cells[26],cells[27]]
-  // const rowFour = [cells[28],cells[29],cells[30],cells[31],cells[32],cells[33],cells[34]]
-  // const rowFive = [cells[35],cells[36],cells[37],cells[38],cells[39],cells[40],cells[41]]
-  // const rowSix = [cells[42],cells[43],cells[44],cells[45],cells[46],cells[47],cells[48]]
+  // * Row arrays * //
 
-  // console.log('topRow is', topRow)
-  // console.log('rowOne is', rowOne)
-  // console.log('rowtwo is', rowTwo)
+  const topRow = [0, 1, 2, 3, 4, 5, 6]
+  const rowOne = [7, 8, 9, 10, 11, 12, 13]
+  const rowTwo = [14, 15, 16, 17, 18, 19, 20]
+  const rowThree = [21, 22, 23, 24, 25, 26, 27]
+  const rowFour = [28, 29, 30, 31, 32, 33, 34]
+  const rowFive = [35, 36, 37, 38, 39, 40, 41]
+  const rowSix = [42, 43, 44, 45, 46, 47, 48]
+  
+  // * Column arrays * //
 
+  const column0 = [0, 7, 14, 21, 28, 35, 42]
+  const column1 = [1, 8, 15, 22, 29, 36, 43]
+  const column2 = [2, 9, 16, 23, 30, 37, 44]
+  const column3 = [3, 10, 17, 24, 31, 38, 45]
+  const column4 = [4, 11, 18, 25, 32, 39, 46]
+  const column5 = [5, 12, 19, 26, 33, 40, 47]
+  const column6 = [6, 13, 20, 27, 34, 41, 48]
   
-  
-  // * Columns /// need to create classes for the below arrays instead of consts
-  // const column0 = [cells[0],cells[7],cells[14],cells[21],cells[28],cells[35],cells[42]]
-  // const column1 = [cells[1],cells[8],cells[15],cells[22],cells[29],cells[36],cells[43]]
-  // const column2 = [cells[2],cells[9],cells[16],cells[23],cells[30],cells[37],cells[44]]
-  // const column3 = [cells[3],cells[10],cells[17],cells[24],cells[31],cells[38],cells[45]]
-  // const column4 = [cells[4],cells[11],cells[18],cells[25],cells[32],cells[39],cells[46]]
-  // const column5 = [cells[5],cells[12],cells[19],cells[26],cells[33],cells[40],cells[47]]
-  // const column6 = [cells[6],cells[13],cells[20],cells[27],cells[34],cells[41],cells[48]]
+  function defineRowClasses() {
+    topRow.forEach(cell => {
+      cells[cell].classList.add(topRowClass)
+    })
+    rowOne.forEach(cell => {
+      cells[cell].classList.add(rowOneClass)
+    })
+    rowTwo.forEach(cell => {
+      cells[cell].classList.add(rowTwoClass)
+    })
+    rowThree.forEach(cell => {
+      cells[cell].classList.add(rowThreeClass)
+    })
+    rowFour.forEach(cell => {
+      cells[cell].classList.add(rowFourClass)
+    })
+    rowFive.forEach(cell => {
+      cells[cell].classList.add(rowFiveClass)
+    })
+    rowSix.forEach(cell => {
+      cells[cell].classList.add(rowSixClass)
+    })
+    }
 
+    function defineColumnClasses() {
+      column0.forEach(cell => {
+        cells[cell].classList.add(column0Class)
+      })
+      column1.forEach(cell => {
+        cells[cell].classList.add(column1Class)
+      })
+      column2.forEach(cell => {
+        cells[cell].classList.add(column2Class)
+      })
+      column3.forEach(cell => {
+        cells[cell].classList.add(column3Class)
+      })
+      column4.forEach(cell => {
+        cells[cell].classList.add(column4Class)
+      })
+      column5.forEach(cell => {
+        cells[cell].classList.add(column5Class)
+      })
+      column6.forEach(cell => {
+        cells[cell].classList.add(column6Class)
+      })
+      }
   
-  
- 
   // * Display empty and taken cells in board *
 
   function displayBoard() {
@@ -74,19 +130,17 @@ function init() {
   }
   return displayBoard
   }
-  displayBoard()
 
 
 // * Handle player's turn () *
 // ------player selects column 
+
+
+
+
 // event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style)
 // step 1 - create event listener to check when you hover over any element in the grid, it can log it
-
 /// when you hover over cells of playerStart 
-function addPlayerOneClass(e) {
-  
-
-}
 
 function handleCellMouseOver(e) {
   const currentPosition = e.target.innerHTML
@@ -116,12 +170,16 @@ function handleCellMouseLeave(e) {
 }
 
 function handleCellMouseClick(e) {
-  console.log('clicked', e.target.innerHTML)
-  const cellIndex = e.target.innerHTML
-  if (cellIndex === [0,7,14,21,28,35,42])
-  return[42].classList.add(currentPlayer)
+  console.log('clicked id =', e.target.dataset.id)
+  const clickedCellId = e.target.dataset.id
+  // need to add a class of the column here - use a check to loop through column
+  // create ternary - asking if currentPlayer equals playeroneCoin
+  currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
+  console.log(currentPlayer)
 }
+handleCellMouseClick
 
+//final index of array^^ //
 // function handleCellMouseOver(event){
 //   if (event.target.class === 'column0') {
     
@@ -145,7 +203,7 @@ function handleCellMouseClick(e) {
 
 createGrid()
 
-//* event listeners - loop through all cells (including 'invisible' top row) 
+//* Event listeners) 
 
 // cells.addEventListener('mouseover', handleCellMouseOver)
 cells.forEach(cell => cell.addEventListener('mouseover', handleCellMouseOver))
