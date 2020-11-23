@@ -35,9 +35,6 @@ function init() {
   let currentPlayer = 'playerOneCoin'
   let winner = null
   let isEndGame = false
-  let coinRow = null
-  let coinColumn = null
-  let playerStart = null
 
   // * Make the grid * //
 
@@ -74,6 +71,7 @@ function init() {
   const column5 = [5, 12, 19, 26, 33, 40, 47]
   const column6 = [6, 13, 20, 27, 34, 41, 48]
   
+  // * Define Row Arrays * //
   function defineRowClasses() {
     topRow.forEach(cell => {
       cells[cell].classList.add(topRowClass)
@@ -98,31 +96,32 @@ function init() {
     })
     }
 
-    function defineColumnClasses() {
-      column0.forEach(cell => {
-        cells[cell].classList.add(column0Class)
-      })
-      column1.forEach(cell => {
-        cells[cell].classList.add(column1Class)
-      })
-      column2.forEach(cell => {
-        cells[cell].classList.add(column2Class)
-      })
-      column3.forEach(cell => {
-        cells[cell].classList.add(column3Class)
-      })
-      column4.forEach(cell => {
-        cells[cell].classList.add(column4Class)
-      })
-      column5.forEach(cell => {
-        cells[cell].classList.add(column5Class)
-      })
-      column6.forEach(cell => {
-        cells[cell].classList.add(column6Class)
-      })
-      }
+  // * Define Column Arrays * //
+  function defineColumnClasses() {
+    column0.forEach(cell => {
+      cells[cell].classList.add(column0Class)
+    })
+    column1.forEach(cell => {
+      cells[cell].classList.add(column1Class)
+    })
+    column2.forEach(cell => {
+      cells[cell].classList.add(column2Class)
+    })
+    column3.forEach(cell => {
+      cells[cell].classList.add(column3Class)
+    })
+    column4.forEach(cell => {
+      cells[cell].classList.add(column4Class)
+    })
+    column5.forEach(cell => {
+      cells[cell].classList.add(column5Class)
+    })
+    column6.forEach(cell => {
+      cells[cell].classList.add(column6Class)
+    })
+    }
   
-  // * Display empty and taken cells in board *
+  // * Display empty and taken cells in board * //
 
   function displayBoard() {
     for (let i=0; i < cellCount; i++) {
@@ -132,83 +131,58 @@ function init() {
   }
 
 
-// * Handle player's turn () *
-// ------player selects column 
+// * Handle player's turn () * //
 
-
-
-
-// event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style)
 // step 1 - create event listener to check when you hover over any element in the grid, it can log it
-/// when you hover over cells of playerStart 
+  // ------ player selects column 
 
-function handleCellMouseOver(e) {
-  const currentPosition = e.target.innerHTML
-  console.log(currentPosition)
-      cells[currentPosition].classList.add(currentPlayer)
+  function handleCellMouseOver(event) {
+    const currentPosition = event.target.innerHTML
+    console.log(currentPosition)
+    cells[currentPosition].classList.add(currentPlayer)
+  }
 
-  // if (cells[currentPosition].classList.contains(playerOne)) {
-  //   removePlayerOneClass()
-  // }
-  // function removePlayerOneClass(currentPosition) {
-  //   cells[currentPosition].classList.remove(playerOne)
-  // }
-  // removePlayerOneClass()
-  // could create two functions inside this - one to add the class and one to remove
-  // console.log('hover')
-  // const currentPosition = e.target.innerHTML
-  // console.log(currentPosition)
-  // cells[currentPosition].classList.add(playerOne)
-  // cells[currentPosition].classList.remove(playerOne)
-  // cells[playerStart].classList.add(playerOne)
-}
+  function handleCellMouseLeave(event) {
+    console.log(event.target.innerHTML)
+    const currentPosition = event.target.innerHTML
+    cells[currentPosition].classList.remove(currentPlayer)
+  }
+  // * event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style) * //
 
-function handleCellMouseLeave(e) {
-  console.log(e.target.innerHTML)
-  const currentPosition = e.target.innerHTML
-  cells[currentPosition].classList.remove(currentPlayer)
-}
-
-function handleCellMouseClick(e) {
-  console.log('clicked id =', e.target.dataset.id)
-  const clickedCellId = e.target.dataset.id
-  // need to add a class of the column here - use a check to loop through column
-  // create ternary - asking if currentPlayer equals playeroneCoin
-  currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
-  console.log(currentPlayer)
-}
-handleCellMouseClick
+  function handlePlayerSelectsColumn(event) {
+    // console.log('clicked id =', event.target.dataset.id)
+    // const clickedCellId = event.target.dataset.id
+    const clickedCellColumn = event.target.classList[1]
+    console.log(clickedCellColumn)
+    if (clickedCellColumn.contains(number) 
+    // if event.target.classList.contains('0') {//add class currentPlayer to final item in the array of that const class
+      // classList[(length -1)] = currentPlayer
+    // }
+    // check column class - use a check to loop through column
+    // create ternary - asking if currentPlayer equals playeroneCoin
+    currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
+    console.log(currentPlayer)
+  }
+  handlePlayerSelectsColumn
 
 //final index of array^^ //
 // function handleCellMouseOver(event){
-//   if (event.target.class === 'column0') {
-    
-//   }
-//   const cells = event.target
-//   console.log(cells)
-//   }
-//   return handleCellMouseover
-
+//   if (event.target.class === 'column0')
 // if cell index < width and , classlist.add (hover) 
-
 
 // * Display empty and taken cells in board [again] *
 
-// * Check if game has been won * (either horizontally, vertically, diagonally)
+// * Check if game has been won [either horizontally, vertically, diagonally] * //
 // -----    == if logic is true (boolean) = ENDGAME
 
-// * switchPlayer *
+  createGrid()
 
-
-
-createGrid()
-
-//* Event listeners) 
+// * Event listeners * //
 
 // cells.addEventListener('mouseover', handleCellMouseOver)
-cells.forEach(cell => cell.addEventListener('mouseover', handleCellMouseOver))
-cells.forEach(cell => cell.addEventListener('mouseleave', handleCellMouseLeave))
-cells.forEach(cell => cell.addEventListener('click', handleCellMouseClick))
+  cells.forEach(cell => cell.addEventListener('mouseover', handleCellMouseOver))
+  cells.forEach(cell => cell.addEventListener('mouseleave', handleCellMouseLeave))
+  cells.forEach(cell => cell.addEventListener('click', handlePlayerSelectsColumn))
 
 }
 
