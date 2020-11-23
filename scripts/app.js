@@ -91,7 +91,7 @@ function addPlayerOneClass(e) {
 function handleCellMouseOver(e) {
   const currentPosition = e.target.innerHTML
   console.log(currentPosition)
-      cells[currentPosition].classList.add(playerOne)
+      cells[currentPosition].classList.add(currentPlayer)
 
   // if (cells[currentPosition].classList.contains(playerOne)) {
   //   removePlayerOneClass()
@@ -112,14 +112,14 @@ function handleCellMouseOver(e) {
 function handleCellMouseLeave(e) {
   console.log(e.target.innerHTML)
   const currentPosition = e.target.innerHTML
-  cells[currentPosition].classList.remove(playerOne)
+  cells[currentPosition].classList.remove(currentPlayer)
 }
 
 function handleCellMouseClick(e) {
   console.log('clicked', e.target.innerHTML)
   const cellIndex = e.target.innerHTML
   if (cellIndex === [0,7,14,21,28,35,42])
-  return 42
+  return[42].classList.add(currentPlayer)
 }
 
 // function handleCellMouseOver(event){
