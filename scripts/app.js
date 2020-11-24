@@ -144,7 +144,7 @@ function init() {
     const currentTopCell = event.target.dataset.id
     console.log(currentTopCell)
     const clickedCellColumn = event.target.classList[1]
-    // above target classList not safe as it's fetcfhing index 1 in array and not the element that contains "columnx"
+    // above target classList not great as it's fetching just index 1 in array (which I know for the moment is the column class) and not the element that e.g."contains columnx"
     console.log(clickedCellColumn)
     // variable used to fill the cell 
     let cellToFill
@@ -188,7 +188,21 @@ function init() {
     console.log(currentPlayer)
     cells[currentTopCell].classList.remove(currentPlayer)
   }
-  handlePlayerSelectsColumn
+
+  function checkForEndGame() {
+    // check through each element of all arrays of rows and columns to see if there are any of the following:
+    // various winning combinations:
+    // horizontal check:
+    // 1. if a row array contains 4 (or more) elements of which ALL FOUR have string 'playerOneCoin' in their class arrays and all their indexes differ by 7
+    // vertical check:
+    // 2. if a column array contains 4 (or more) elements of which ALL FOUR have string 'playerTwoCoin' in their class arrays and all their indexes differ by 7
+    // diagonal check:
+    // either
+    // - [cell id] [prev id +8] [prev id + 8] 
+    // - or [cell id] [cell id-6]
+
+
+  }
 
 
 // * Win condition & logic  -- (check if game has been won [either horizontally, vertically, diagonally]) * //

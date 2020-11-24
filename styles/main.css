@@ -38,13 +38,13 @@ body {
 
 .playerOneCoin {
 background-color: yellow;
-border-radius: 10px;
+border-radius: 50%;
 
 }
 
 .playerTwoCoin {
 background-color: red;
-border-radius: 10px;
+border-radius: 50%;
 } 
 
 /* .win !--//win class to 'highlight' which four pieces have won the game */
