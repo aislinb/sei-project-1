@@ -120,16 +120,6 @@ function init() {
       cells[cell].classList.add(column6Class)
     })
     }
-  
-  // * Display empty and taken cells in board * //
-
-  function displayBoard() {
-    for (let i=0; i < cellCount; i++) {
-      console.log('')
-  }
-  return displayBoard
-  }
-
 
 // * Handle player's turn () * //
 
@@ -154,6 +144,7 @@ function init() {
     const currentTopCell = event.target.dataset.id
     console.log(currentTopCell)
     const clickedCellColumn = event.target.classList[1]
+    // above target classList not safe as it's fetcfhing index 1 in array and not the element that contains "columnx"
     console.log(clickedCellColumn)
     // variable used to fill the cell 
     let cellToFill
@@ -165,12 +156,32 @@ function init() {
       column0.pop()
       console.log(column0)
     }
-
-    // else if 
-  
-    
-    // check column class - use a check to loop through column
-    // create ternary - asking if currentPlayer equals playeroneCoin
+    else if (clickedCellColumn === 'column1') {
+      cellToFill = column1[column1.length -1]
+      console.log(column1.length -1)
+      column1.pop()
+    }
+    else if (clickedCellColumn === 'column2') {
+      cellToFill = column2[column2.length -1]
+      column2.pop()
+    }
+    else if (clickedCellColumn === 'column3') {
+      cellToFill = column3[column3.length -1]
+      column3.pop()
+    }
+    else if (clickedCellColumn === 'column4') {
+      cellToFill = column4[column4.length -1]
+      column4.pop()
+    }
+    else if (clickedCellColumn === 'column5') {
+      cellToFill = column5[column5.length -1]
+      column5.pop()
+    }
+    else if (clickedCellColumn === 'column6') {
+      cellToFill = column6[column6.length -1]
+      column6.pop()
+    }
+    // part two of the selectsColumn function is the ternary - asking if currentPlayer equals playeroneCoin, and if so to flip to playerTwo (and vice versa):
 
     cells[cellToFill].classList.add(currentPlayer)
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
@@ -179,14 +190,8 @@ function init() {
   }
   handlePlayerSelectsColumn
 
-//final index of array^^ //
-// function handleCellMouseOver(event){
-//   if (event.target.class === 'column0')
-// if cell index < width and , classlist.add (hover) 
 
-// * Display empty and taken cells in board [again] *
-
-// * Check if game has been won [either horizontally, vertically, diagonally] * //
+// * Win condition & logic  -- (check if game has been won [either horizontally, vertically, diagonally]) * //
 // -----    == if logic is true (boolean) = ENDGAME
 
   createGrid()
