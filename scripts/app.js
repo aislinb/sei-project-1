@@ -151,17 +151,31 @@ function init() {
 
   function handlePlayerSelectsColumn(event) {
     // console.log('clicked id =', event.target.dataset.id)
-    // const clickedCellId = event.target.dataset.id
+    const currentTopCell = event.target.dataset.id
+    console.log(currentTopCell)
     const clickedCellColumn = event.target.classList[1]
     console.log(clickedCellColumn)
-    if (clickedCellColumn.contains(number) 
-    // if event.target.classList.contains('0') {//add class currentPlayer to final item in the array of that const class
-      // classList[(length -1)] = currentPlayer
-    // }
+    // variable used to fill the cell 
+    let cellToFill
+    if (clickedCellColumn === 'column0') {
+      //assign value to last item in column0 array
+      cellToFill = column0[column0.length -1]
+      console.log(cellToFill)
+      console.log(column0.length -1)
+      column0.pop()
+      console.log(column0)
+    }
+
+    // else if 
+  
+    
     // check column class - use a check to loop through column
     // create ternary - asking if currentPlayer equals playeroneCoin
+
+    cells[cellToFill].classList.add(currentPlayer)
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
     console.log(currentPlayer)
+    cells[currentTopCell].classList.remove(currentPlayer)
   }
   handlePlayerSelectsColumn
 
