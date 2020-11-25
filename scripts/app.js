@@ -36,6 +36,7 @@ function init() {
   let currentPlayer = 'playerOneCoin'
   let winner = null
   let isEndGame = false
+  let latestDrop
 
   // * Make the grid * //
 
@@ -128,34 +129,41 @@ function init() {
   // * CHECK FOR WINS * 
 
   function checkHorizontalWin() {
-    // go through each row starting from the bottom 
-    for (let i = 0; i < arrOfRows.length; i++) {
-      let coinForCurrentPlayersWin = [] // we will iterate thru and push in strings to eventually see if we have 4 of the same
-        for (let j = 0; j < arrOfRows[i].length; j++) {
-          // console.log('this second one')
-        console.log(arrOfRows[i][j])
-        if (cells[arrOfRows[i][j]].classList.contains('playerOneCoin')) {
-          if (j === 0) {
-            coinForCurrentPlayersWin.push.playerOneCoin
-          }
-            // chck previous box (i) to see if its the same , if current[]-1 = playerOneCoin, then do this. if there's nothign in current then do a check by putting a 'xxx' into it 
-          else (coinForCurrentPlayersWin[coinForCurrentPlayersWin.length-1] === 'playerOneCoin') {
-            coinForCurrentPlayersWin.push.playerOneCoin
-          }
-        } else if (cells[arrOfRows[i][j]].classList.contains('playerTwoCoin')) {
-          coinForCurrentPlayersWin.push.playerTwoCoin
-        }
-      
-        // } if  {
-
-        // } 
+    // If the box to the right has a classlist of the current player then check the box to the right of it.
+    let currentSquare = latestDrop
+    let counter = 0
+    while (cells[currentSquare].classList.contains(currentPlayer)) {
+      counter++
+      currentSquare++
+    }
+    if (counter >= 4) {
+      console.log('win')
+    } else {
+      currentSquare = latestDrop - 1
+      while (cells[currentSquare].classList.contains(currentPlayer)) {
+        counter++
+        currentSquare--
       }
     }
-    // if current.length > 3 === then player wins 
+    console.log('horizontal', counter)
+  }
+  function checkVerticalWin() {
+    // If the box to the right has a classlist of the current player then check the box to the right of it.
+    let currentSquare = latestDrop
+    let counter = 0
+    console.log(currentSquare, cells.length)
+    while (currentSquare < cells.length && cells[currentSquare].classList.contains(currentPlayer)) {
+      console.log('here')
+      counter++
+      currentSquare += width
+    }
+    if (counter >= 4) {
+      console.log('win') // Win 
+    }
+    console.log('vertical', counter)
+  }
 
-    //if array indexes are the same === player X wins
-
-  } 
+  // } 
 
 // * Handle player's turn () * //
 
@@ -177,7 +185,6 @@ function init() {
   // * event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style) * //
 
   function handlePlayerSelectsColumn(event) {
-    checkHorizontalWin()
     // console.log('clicked id =', event.target.dataset.id)
     const currentTopCell = event.target.dataset.id
     console.log(currentTopCell)
@@ -222,6 +229,10 @@ function init() {
     // part two of the selectsColumn function is the ternary - asking if currentPlayer equals playeroneCoin, and if so to flip to playerTwo (and vice versa):
 
     cells[cellToFill].classList.add(currentPlayer)
+
+    checkHorizontalWin()
+    checkVerticalWin()
+    
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
     console.log(currentPlayer)
     cells[currentTopCell].classList.remove(currentPlayer)
