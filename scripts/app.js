@@ -52,32 +52,6 @@ function init() {
     defineColumnClasses()
   }
 
-  function checkHorizontalWin() {
-    // console.log('hi')
-    // go through each row starting from the bottom 
-    for (let i = 0; i < arrOfRows.length; i++) {
-      // console.log('hello1')
-      let current = [] // we will iterate thru and push in strings to eventually see if we have 4 of the same
-        for (let j = 0; j < arrOfRows[i].length; j++) {
-          // console.log('this second one')
-          console.log(arrOfRows[i][j])
-          if (cells[arrOfRows[i][j]].classList.contains('playerOneCoin')) {
-            // chck previous box (i) to see if its the same , if current[]-1 = playerOneCoin, then do this. if there's nothign in current then do a check by putting a 'xxx' into it 
-          current.push.playerOneCoin
-        } else if (cells[arrOfRows[i][j]].classList.contains('playerTwoCoin')) {
-          current.push.playerTwoCoin
-        
-        // } else {
-        //   current = []
-        //   console.log(current)
-        }
-      }
-    }
-    // if current.length > 3 === then player wins 
-
-    //if array indexes are the same === player X wins
-
-  }
 
   // * Row arrays * //
 
@@ -151,6 +125,37 @@ function init() {
       cells[cell].classList.add(column6Class)
     })
   }
+  // * CHECK FOR WINS * 
+
+  function checkHorizontalWin() {
+    // go through each row starting from the bottom 
+    for (let i = 0; i < arrOfRows.length; i++) {
+      let coinForCurrentPlayersWin = [] // we will iterate thru and push in strings to eventually see if we have 4 of the same
+        for (let j = 0; j < arrOfRows[i].length; j++) {
+          // console.log('this second one')
+        console.log(arrOfRows[i][j])
+        if (cells[arrOfRows[i][j]].classList.contains('playerOneCoin')) {
+          if (j === 0) {
+            coinForCurrentPlayersWin.push.playerOneCoin
+          }
+            // chck previous box (i) to see if its the same , if current[]-1 = playerOneCoin, then do this. if there's nothign in current then do a check by putting a 'xxx' into it 
+          else (coinForCurrentPlayersWin[coinForCurrentPlayersWin.length-1] === 'playerOneCoin') {
+            coinForCurrentPlayersWin.push.playerOneCoin
+          }
+        } else if (cells[arrOfRows[i][j]].classList.contains('playerTwoCoin')) {
+          coinForCurrentPlayersWin.push.playerTwoCoin
+        }
+      
+        // } if  {
+
+        // } 
+      }
+    }
+    // if current.length > 3 === then player wins 
+
+    //if array indexes are the same === player X wins
+
+  } 
 
 // * Handle player's turn () * //
 
@@ -222,12 +227,6 @@ function init() {
     cells[currentTopCell].classList.remove(currentPlayer)
     
   }
-
-  function checkForEndGame() {
-    
-
-  }
-
 
 // * Win condition & logic  -- (check if game has been won [either horizontally, vertically, diagonally]) * //
 // -----    == if logic is true (boolean) = ENDGAME
