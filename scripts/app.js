@@ -32,8 +32,6 @@ function init() {
   const column5Class = 'column5'
   const column6Class = 'column6'
 
-  const arrOfRows = [rowSix, rowFive, rowFour, rowThree, rowTwo, rowOne]
-  const arrOfColumns = [column6, column5, column4, column3, column2, column1]
 
   let currentPlayer = 'playerOneCoin'
   let winner = null
@@ -49,23 +47,35 @@ function init() {
       grid.appendChild(cell)
       cells.push(cell)
     }
-    console.log(cells)
+    // console.log(cells)
     defineRowClasses()
     defineColumnClasses()
   }
 
   function checkHorizontalWin() {
+    // console.log('hi')
     // go through each row starting from the bottom 
-    for (let i = 0; i > arrOfRows.length; i++) {
+    for (let i = 0; i < arrOfRows.length; i++) {
+      // console.log('hello1')
       let current = [] // we will iterate thru and push in strings to eventually see if we have 4 of the same
-      for (let j = 0; j > arrOfRows.length; j++) {
-        if (cells[j].classList.contains('playerOneCoin'))
-        current.push.playerOneCoin
-      } else if (cells[j].classList.contains('playerTwoCoin'))
-        current.push.playerTwoCoin
-      } else (current = [])
-      
-    )
+        for (let j = 0; j < arrOfRows[i].length; j++) {
+          // console.log('this second one')
+          console.log(arrOfRows[i][j])
+          if (cells[arrOfRows[i][j]].classList.contains('playerOneCoin')) {
+            // chck previous box (i) to see if its the same , if current[]-1 = playerOneCoin, then do this. if there's nothign in current then do a check by putting a 'xxx' into it 
+          current.push.playerOneCoin
+        } else if (cells[arrOfRows[i][j]].classList.contains('playerTwoCoin')) {
+          current.push.playerTwoCoin
+        
+        // } else {
+        //   current = []
+        //   console.log(current)
+        }
+      }
+    }
+    // if current.length > 3 === then player wins 
+
+    //if array indexes are the same === player X wins
 
   }
 
@@ -88,6 +98,9 @@ function init() {
   const column4 = [4, 11, 18, 25, 32, 39, 46]
   const column5 = [5, 12, 19, 26, 33, 40, 47]
   const column6 = [6, 13, 20, 27, 34, 41, 48]
+
+  const arrOfRows = [rowSix, rowFive, rowFour, rowThree, rowTwo, rowOne]
+  const arrOfColumns = [column6, column5, column4, column3, column2, column1, column0]
   
   // * Define Row Arrays * //
   function defineRowClasses() {
@@ -112,7 +125,7 @@ function init() {
     rowSix.forEach(cell => {
       cells[cell].classList.add(rowSixClass)
     })
-    }
+  }
 
   // * Define Column Arrays * //
   function defineColumnClasses() {
@@ -137,7 +150,7 @@ function init() {
     column6.forEach(cell => {
       cells[cell].classList.add(column6Class)
     })
-    }
+  }
 
 // * Handle player's turn () * //
 
@@ -149,6 +162,7 @@ function init() {
     console.log(currentPosition)
     cells[currentPosition].classList.add(currentPlayer)
   }
+  
 
   function handleCellMouseLeave(event) {
     console.log(event.target.innerHTML)
@@ -158,6 +172,7 @@ function init() {
   // * event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style) * //
 
   function handlePlayerSelectsColumn(event) {
+    checkHorizontalWin()
     // console.log('clicked id =', event.target.dataset.id)
     const currentTopCell = event.target.dataset.id
     console.log(currentTopCell)
@@ -172,7 +187,7 @@ function init() {
       console.log(cellToFill)
       console.log(column0.length -1)
       column0.pop()
-      console.log(column0)
+      // console.log(column0)
     }
     else if (clickedCellColumn === 'column1') {
       cellToFill = column1[column1.length -1]
