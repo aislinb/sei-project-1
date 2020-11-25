@@ -32,6 +32,9 @@ function init() {
   const column5Class = 'column5'
   const column6Class = 'column6'
 
+  const arrOfRows = [rowSix, rowFive, rowFour, rowThree, rowTwo, rowOne]
+  const arrOfColumns = [column6, column5, column4, column3, column2, column1]
+
   let currentPlayer = 'playerOneCoin'
   let winner = null
   let isEndGame = false
@@ -49,6 +52,21 @@ function init() {
     console.log(cells)
     defineRowClasses()
     defineColumnClasses()
+  }
+
+  function checkHorizontalWin() {
+    // go through each row starting from the bottom 
+    for (let i = 0; i > arrOfRows.length; i++) {
+      let current = [] // we will iterate thru and push in strings to eventually see if we have 4 of the same
+      for (let j = 0; j > arrOfRows.length; j++) {
+        if (cells[j].classList.contains('playerOneCoin'))
+        current.push.playerOneCoin
+      } else if (cells[j].classList.contains('playerTwoCoin'))
+        current.push.playerTwoCoin
+      } else (current = [])
+      
+    )
+
   }
 
   // * Row arrays * //
@@ -188,32 +206,10 @@ function init() {
     console.log(currentPlayer)
     cells[currentTopCell].classList.remove(currentPlayer)
     
-    // Check For Horizontal Win: 
-    check entire board if statement, starting at cell id 1, if yes & in
-
-    // Check For Vertical Win: 
-    // use const from above "clickedCellColumn" 
-
   }
 
   function checkForEndGame() {
-    // can i create a new variable for the lastCellFilled (which was 'CellToFill' in the previous function?)
-    // let lastCellFilled === cellToFill
-    // console.log(lastCellFilled)
-    // if cells[42].contains.classList(currentPlayer)
-    // return console.log('step1')
-
-    // check through each element of all arrays of rows and columns to see if there are any of the following:
-    // various winning combinations:
-    // horizontal check:
-    // 1. if a row array contains 4 (or more) elements of which ALL FOUR have string 'playerOneCoin' in their class arrays and all their indexes differ by 7
-    // vertical check:
-    // 2. if a column array contains 4 (or more) elements of which ALL FOUR have string 'playerTwoCoin' in their class arrays and all their indexes differ by 7
-    // diagonal check:
-    // either
-    // - [cell id] [prev id +8] [prev id + 8] 
-    // - or [cell id] [cell id-6]
-
+    
 
   }
 
