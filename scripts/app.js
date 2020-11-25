@@ -144,7 +144,7 @@ function init() {
     const currentTopCell = event.target.dataset.id
     console.log(currentTopCell)
     const clickedCellColumn = event.target.classList[1]
-    // above target classList not great as it's fetching just index 1 in array (which I know for the moment is the column class) and not the element that e.g."contains columnx"
+    // above target classList not great as it's fetching just index 1 in array (which I know for the moment is the column class) and not the element that e.g."contains columnX"
     console.log(clickedCellColumn)
     // variable used to fill the cell 
     let cellToFill
@@ -187,9 +187,22 @@ function init() {
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
     console.log(currentPlayer)
     cells[currentTopCell].classList.remove(currentPlayer)
+    
+    // Check For Horizontal Win: 
+    check entire board if statement, starting at cell id 1, if yes & in
+
+    // Check For Vertical Win: 
+    // use const from above "clickedCellColumn" 
+
   }
 
   function checkForEndGame() {
+    // can i create a new variable for the lastCellFilled (which was 'CellToFill' in the previous function?)
+    // let lastCellFilled === cellToFill
+    // console.log(lastCellFilled)
+    // if cells[42].contains.classList(currentPlayer)
+    // return console.log('step1')
+
     // check through each element of all arrays of rows and columns to see if there are any of the following:
     // various winning combinations:
     // horizontal check:
