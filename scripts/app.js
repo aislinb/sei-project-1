@@ -147,6 +147,7 @@ function init() {
     }
     console.log('horizontal', counter)
   }
+
   function checkVerticalWin() {
     // If the box to the right has a classlist of the current player then check the box to the right of it.
     let currentSquare = latestDrop
@@ -163,11 +164,25 @@ function init() {
     console.log('vertical', counter)
   }
 
-  // } 
+  function checkDiagonalWin() {
+    // If the box to the right has a classlist of the current player then check the box to the right of it.
+    let currentSquare = latestDrop
+    let counter = 0
+    console.log(currentSquare, cells.length)
+    while (currentSquare < cells.length && cells[currentSquare].classList.contains(currentPlayer)) {
+      console.log('here')
+      counter++
+      currentSquare += width
+    }
+    if (counter >= 4) {
+      console.log('win') // Win 
+    }
+    console.log('diagonal', counter)
+  }
 
-// * Handle player's turn () * //
+  // * Handle player's turn () * //
 
-// step 1 - create event listener to check when you hover over any element in the grid, it can log it
+  // step 1 - create event listener to check when you hover over any element in the grid, it can log it
   // ------ player selects column 
 
   function handleCellMouseOver(event) {
@@ -187,7 +202,7 @@ function init() {
   function handlePlayerSelectsColumn(event) {
     // console.log('clicked id =', event.target.dataset.id)
     const currentTopCell = event.target.dataset.id
-    console.log(currentTopCell)
+    // console.log(currentTopCell)
     const clickedCellColumn = event.target.classList[1]
     // above target classList not great as it's fetching just index 1 in array (which I know for the moment is the column class) and not the element that e.g."contains columnX"
     console.log(clickedCellColumn)
@@ -198,33 +213,33 @@ function init() {
       cellToFill = column0[column0.length -1]
       console.log(cellToFill)
       console.log(column0.length -1)
-      column0.pop()
+      latestDrop = column0.pop()
       // console.log(column0)
     }
     else if (clickedCellColumn === 'column1') {
       cellToFill = column1[column1.length -1]
       console.log(column1.length -1)
-      column1.pop()
+      latestDrop = column1.pop()
     }
     else if (clickedCellColumn === 'column2') {
       cellToFill = column2[column2.length -1]
-      column2.pop()
+      latestDrop = column2.pop()
     }
     else if (clickedCellColumn === 'column3') {
       cellToFill = column3[column3.length -1]
-      column3.pop()
+      latestDrop = column3.pop()
     }
     else if (clickedCellColumn === 'column4') {
       cellToFill = column4[column4.length -1]
-      column4.pop()
+      latestDrop = column4.pop()
     }
     else if (clickedCellColumn === 'column5') {
       cellToFill = column5[column5.length -1]
-      column5.pop()
+      latestDrop = column5.pop()
     }
     else if (clickedCellColumn === 'column6') {
       cellToFill = column6[column6.length -1]
-      column6.pop()
+      latestDrop = column6.pop()
     }
     // part two of the selectsColumn function is the ternary - asking if currentPlayer equals playeroneCoin, and if so to flip to playerTwo (and vice versa):
 
@@ -232,21 +247,19 @@ function init() {
 
     checkHorizontalWin()
     checkVerticalWin()
-    
+    checkDiagonalWin()
+
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
     console.log(currentPlayer)
     cells[currentTopCell].classList.remove(currentPlayer)
     
   }
 
-// * Win condition & logic  -- (check if game has been won [either horizontally, vertically, diagonally]) * //
-// -----    == if logic is true (boolean) = ENDGAME
-
   createGrid()
 
-// * Event listeners * //
+  // * Event listeners * //
 
-// cells.addEventListener('mouseover', handleCellMouseOver)
+  // cells.addEventListener('mouseover', handleCellMouseOver)
   cells.forEach(cell => cell.addEventListener('mouseover', handleCellMouseOver))
   cells.forEach(cell => cell.addEventListener('mouseleave', handleCellMouseLeave))
   cells.forEach(cell => cell.addEventListener('click', handlePlayerSelectsColumn))
