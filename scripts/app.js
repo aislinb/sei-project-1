@@ -9,12 +9,14 @@ function init() {
   // * Global Variables * //
 
   const grid = document.querySelector('.grid')
-  console.log(grid)
+  // console.log(grid)
   
   const width = 7
   const height = 7
   const cellCount = width * height
   const cells = []
+
+  const winnerIs = document.querySelector('#winner-status')
 
   const topRowClass = 'topRow'
   const rowOneClass= 'rowOne'
@@ -34,7 +36,7 @@ function init() {
 
 
   let currentPlayer = 'playerOneCoin'
-  let winner = null
+
   let isEndGame = false
   let latestDrop
 
@@ -129,7 +131,7 @@ function init() {
   // * CHECK FOR WINS * 
 
   function checkHorizontalWin() {
-    // If the box to the right has a classlist of the current player then check the box to the right of it.
+    // If the box to the right has a classlist of the current player then check the box to the right of that.
     let currentSquare = latestDrop
     let counter = 0
     while (cells[currentSquare].classList.contains(currentPlayer)) {
@@ -137,7 +139,8 @@ function init() {
       currentSquare++
     }
     if (counter >= 4) {
-      console.log('win')
+      console.log(currentPlayer)
+      winnerIs.textContent = currentPlayer
     } else {
       currentSquare = latestDrop - 1
       while (cells[currentSquare].classList.contains(currentPlayer)) {
@@ -160,35 +163,43 @@ function init() {
     }
     if (counter >= 4) {
       console.log('win') // Win 
+      winnerIs.textContent = currentPlayer
     }
     console.log('vertical', counter)
   }
 
-  function checkDiagonalWin() {
-    // If the box to the right has a classlist of the current player then check the box to the right of it.
-    let currentSquare = latestDrop
-    let counter = 0
-    console.log(currentSquare, cells.length)
-    while (currentSquare < cells.length && cells[currentSquare].classList.contains(currentPlayer)) {
-      console.log('here')
-      counter++
-      currentSquare += width
-    }
-    if (counter >= 4) {
-      console.log('win') // Win 
-    }
-    console.log('diagonal', counter)
-  }
+  // function checkDiagonalWin() {
+  //   // If the box to the right has a classlist of the current player then check the box to the right of it.
+  //   let currentSquare = latestDrop
+  //   let counter = 0
+  //   console.log(currentSquare, cells.length)
+  //   while (currentSquare < cells.length && cells[currentSquare].classList.contains(currentPlayer)) {
+  //     console.log('here')
+  //     counter++
+  //     currentSquare += width
+  //   }
+  //   if (counter >= 4) {
+  //     console.log('win') // Win 
+  //   }
+  //   console.log('diagonal', counter)
+  // }
 
   // * Handle player's turn () * //
 
   // step 1 - create event listener to check when you hover over any element in the grid, it can log it
   // ------ player selects column 
 
+  // * what to do when game is won * //
+
+
+
   function handleCellMouseOver(event) {
     const currentPosition = event.target.innerHTML
     console.log(currentPosition)
+    if (topRow.includes(currentPosition)) {
     cells[currentPosition].classList.add(currentPlayer)
+    }
+
   }
   
 
@@ -247,11 +258,11 @@ function init() {
 
     checkHorizontalWin()
     checkVerticalWin()
-    checkDiagonalWin()
+    // checkDiagonalWin()
 
     currentPlayer = currentPlayer === 'playerOneCoin' ? 'playerTwoCoin': 'playerOneCoin'
     console.log(currentPlayer)
-    cells[currentTopCell].classList.remove(currentPlayer)
+    cells[currentTopCell].classList.remove('playerOneCoin', 'playerTwoCoin')
     
   }
 
