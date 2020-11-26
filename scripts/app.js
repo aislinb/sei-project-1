@@ -10,11 +10,13 @@ function init() {
 
   const grid = document.querySelector('.grid')
   // console.log(grid)
+
   
   const width = 7
   const height = 7
   const cellCount = width * height
   const cells = []
+  const isGameOver = document.querySelector('#gameover')
 
   const winnerIs = document.querySelector('#winner-status')
   const whoseGoIsIt = document.querySelector('#currentPlayer')
@@ -38,7 +40,6 @@ function init() {
 
   let currentPlayer = 'playerOneCoin'
 
-  let isEndGame = false
   let latestDrop
 
   // * Make the grid * //
@@ -131,6 +132,11 @@ function init() {
   }
   // * CHECK FOR WINS * 
 
+  function isEndGame() {
+    isGameOver.style.opacity = '1'
+    winnerIs.innerHTML = currentPlayer
+  }
+
   function checkHorizontalWin() {
     // If the box to the right has a classlist of the current player then check the box to the right of that.
     let currentSquare = latestDrop
@@ -150,6 +156,7 @@ function init() {
       }
       if (counter >= 4) {
         console.log('win')
+        isEndGame()
       }
     }
   }
@@ -166,7 +173,8 @@ function init() {
     }
     if (counter >= 4) {
       console.log('win') // Win 
-      winnerIs.textContent = currentPlayer
+      // winnerIs.textContent = currentPlayer
+      isEndGame()
     }
     console.log('vertical', counter)
   }
@@ -194,6 +202,11 @@ function init() {
 
   // * what to do when game is won * //
 
+  function playDropSound(event) {
+    // start - drop Audio.src = "dhgfgh'"
+    // dropAudio.play
+    // (audio tag in elementS)
+  }
 
 
   function handleCellMouseOver(event) {
@@ -258,6 +271,8 @@ function init() {
     // part two of the selectsColumn function is the ternary - asking if currentPlayer equals playeroneCoin, and if so to flip to playerTwo (and vice versa):
 
     cells[cellToFill].classList.add(currentPlayer)
+    ////*audio.play()
+
 
     checkHorizontalWin()
     checkVerticalWin()
