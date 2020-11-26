@@ -27,7 +27,7 @@ body {
   width: 13%;
 }
 
-.topRow div {
+.topRowClass {
   background: white;
   border-color: beige;
 }

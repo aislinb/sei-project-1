@@ -139,16 +139,17 @@ function init() {
       currentSquare++
     }
     if (counter >= 4) {
-      console.log(currentPlayer)
-      winnerIs.textContent = currentPlayer
+      console.log('win')
     } else {
       currentSquare = latestDrop - 1
       while (cells[currentSquare].classList.contains(currentPlayer)) {
         counter++
         currentSquare--
       }
+      if (counter >= 4) {
+        console.log('win')
+      }
     }
-    console.log('horizontal', counter)
   }
 
   function checkVerticalWin() {
