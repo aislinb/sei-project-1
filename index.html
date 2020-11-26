@@ -11,8 +11,20 @@
   <h1 class="header">Let's Play Connect 4!</h1>
   <div class="controls-wrapper">
     <div><button type="reset" class="reset">Reset</button></div>
-    <div>Whose turn is it?<span id="currentPlayer"></span></div>
-    <div id="gameover"><span id="winner-status">And the winner is....</span></div>
+    <div>Whose turn is it?<span id="whosegoisit"></span></div>
+    <div id="gameover">
+      <div id="celebration">
+        <img src="media/pink_lightning.gif" alt="fireworks">
+      </div>
+      <div id="announcewinner">
+        <p>
+          And the winner is....<span id="winner-status"></span>
+        </p>
+      </div>
+      <div>
+        <button type="reset" class="reset">Reset</button>
+      </div>
+    </div>
   </div>
   <div class="grid-wrapper">
     <div class="grid"></div>

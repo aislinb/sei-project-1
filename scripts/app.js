@@ -19,7 +19,7 @@ function init() {
   const isGameOver = document.querySelector('#gameover')
 
   const winnerIs = document.querySelector('#winner-status')
-  const whoseGoIsIt = document.querySelector('#currentPlayer')
+  // const whoseGoIsIt = document.querySelector('#whosegoisit')
 
   const topRowClass = 'topRow'
   const rowOneClass= 'rowOne'
@@ -141,23 +141,24 @@ function init() {
     // If the box to the right has a classlist of the current player then check the box to the right of that.
     let currentSquare = latestDrop
     let counter = 0
+    console.log(currentSquare, cells.length)
     while (cells[currentSquare].classList.contains(currentPlayer)) {
       counter++
       currentSquare++
     }
-
     if (counter >= 4) {
       console.log('win')
+      isEndGame()
     } else {
-      currentSquare = latestDrop - 1
-      while (cells[currentSquare].classList.contains(currentPlayer)) {
-        counter++
-        currentSquare--
-      }
-      if (counter >= 4) {
-        console.log('win')
-        isEndGame()
-      }
+        currentSquare = latestDrop - 1
+        while (cells[currentSquare].classList.contains(currentPlayer)) {
+          counter++
+          currentSquare--
+        }
+        if (counter >= 4) {
+          console.log('win')
+          isEndGame()
+        }
     }
   }
 
@@ -167,20 +168,20 @@ function init() {
     let counter = 0
     console.log(currentSquare, cells.length)
     while (currentSquare < cells.length && cells[currentSquare].classList.contains(currentPlayer)) {
-      console.log('here')
+      // console.log('here')
       counter++
       currentSquare += width
     }
     if (counter >= 4) {
-      console.log('win') // Win 
+      // console.log('win') // Win 
       // winnerIs.textContent = currentPlayer
       isEndGame()
     }
-    console.log('vertical', counter)
+    // console.log('vertical', counter)
   }
 
   // function checkDiagonalWin() {
-  //   // If the box to the right has a classlist of the current player then check the box to the right of it.
+    // If the box to the right has a classlist of the current player then check the box to the right of it.
   //   let currentSquare = latestDrop
   //   let counter = 0
   //   console.log(currentSquare, cells.length)
@@ -202,11 +203,11 @@ function init() {
 
   // * what to do when game is won * //
 
-  function playDropSound(event) {
+  // function playDropSound(event) {
     // start - drop Audio.src = "dhgfgh'"
     // dropAudio.play
     // (audio tag in elementS)
-  }
+  // }
 
 
   function handleCellMouseOver(event) {
