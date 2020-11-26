@@ -17,6 +17,7 @@ function init() {
   const cells = []
 
   const winnerIs = document.querySelector('#winner-status')
+  const whoseGoIsIt = document.querySelector('#currentPlayer')
 
   const topRowClass = 'topRow'
   const rowOneClass= 'rowOne'
@@ -138,6 +139,7 @@ function init() {
       counter++
       currentSquare++
     }
+
     if (counter >= 4) {
       console.log('win')
     } else {
@@ -272,9 +274,9 @@ function init() {
   // * Event listeners * //
 
   // cells.addEventListener('mouseover', handleCellMouseOver)
-  cells.forEach(cell => cell.addEventListener('mouseover', handleCellMouseOver))
-  cells.forEach(cell => cell.addEventListener('mouseleave', handleCellMouseLeave))
-  cells.forEach(cell => cell.addEventListener('click', handlePlayerSelectsColumn))
+  topRow.forEach(cell => cells[cell].addEventListener('mouseover', handleCellMouseOver))
+  topRow.forEach(cell => cells[cell].addEventListener('mouseleave', handleCellMouseLeave))
+  topRow.forEach(cell => cells[cell].addEventListener('click', handlePlayerSelectsColumn))
 
 }
 
