@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/cloudsbackgroundabagg.jpg');
+  background-image: url('../media/cloudsbackgroundabagg.jpg');
   background: stretch;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ h1 {
   align-items: center;
   text-overflow: ellipsis;
   text-align: center;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073; */
   padding: 10px;
 }
 
@@ -43,7 +43,7 @@ h1 {
 }
 
 ul {
-  display: flex;
+display: flex;
 flex-wrap: wrap;
 justify-content: center;
 flex-direction: row;
@@ -55,7 +55,6 @@ list-style: none;
 .controls-wrapper ul li  {
   text-transform: uppercase;
   font-weight: 700;
-  margin-right: 300px;
   line-height: 1.5;
 }
 
@@ -74,6 +73,7 @@ list-style: none;
 }
 
 .grid {
+  color: transparent;
   align-items: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
@@ -92,30 +92,22 @@ list-style: none;
   width: 700px; */
 }
 
-/* .rowSix .rowFive .rowFour .rowThree .rowTwo .rowOne {
+.rowSix .rowFive .rowFour .rowThree .rowTwo .rowOne {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   border: 5px solid blue;
   border-radius: 10px;
 
-} */
+}
 
 .grid > div:not(#topRow) {
   border: 1px solid lightgrey;
   flex-grow: 1;
   height: 14.286%;
   width: 14.286%;
-  /* background: pink; */
   border: 5px solid white;
   border-radius: 50%;
-  /* flex-grow: 1; */
   
 }
-
-/* .topRow div {
-  border: 5px transparent;
-  border-radius: 50%;
-  flex-grow: 1;
-   */
 
 
 .topRow:hover {
@@ -124,20 +116,20 @@ list-style: none;
 }
 
 .playerOneCoin {
-  background: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/player1pinkball.png');
+  background-image: url('../media/player1pinkball.png');
   
   border-radius: 50%;
   background-size: auto 100%;
   background-position: center;
-  color: white;
+  /* color: white; */
 }
 
 .playerTwoCoin {
-  background-image: url('./media/earth-russia.png');
+  background-image: url('../media/earth-russia.png');
   border-radius: 50%;
   background-size: auto 100%;
   background-position: center;
-  color: white;
+  /* color: white; */
 } 
 
 
@@ -160,6 +152,10 @@ list-style: none;
     text-align: center;
     opacity: 0;
     box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19);
+    /* background-image: url('..media/cloudsbackgroundabagg.jpg');
+    background-size: auto 100%;
+    background-position: center; */
+
   }
   /* position: fixed;
   z-index: 99;
@@ -176,13 +172,44 @@ list-style: none;
   opacity: 0;
   box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19); */
 
+  /* #gameover div {
+  background-image: url('..media/key_banfireworks.png');
+  border-radius: 50%;
+  background-size: auto 100%;
+  background-position: center;
+
+} */
+
 
 #gameover div {
+  /* display: flex;
+  
+  background-color: white;
+  border-radius: 50%;
+  /* background-size: auto 100%;
+  background-position: center; */
+  /* color: white; */ 
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  /* border: 3px solid;
+  border-radius: 4px; */
+  /* background-color: white; */
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
-
+  padding: 10px;
+  color: white;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  text-align: center;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
 }
+
+
 
 /* .win !--//win class to 'highlight' which four pieces have won the game */
