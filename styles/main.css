@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background-image: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/cloudsbackgroundabagg.jpg');
+  background: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/cloudsbackgroundabagg.jpg');
   background: stretch;
   display: flex;
   flex-direction: column;
@@ -35,14 +35,28 @@ h1 {
 
 
 .controls-wrapper {
-  height: 10vh;
+  padding: 10px;
   display: flex;
-  
-  
   flex-direction: row;
   justify-content: center;
-  align-items: space; 
+  align-items: space;
+}
 
+ul {
+  display: flex;
+flex-wrap: wrap;
+justify-content: center;
+flex-direction: row;
+justify-content: space-evenly;
+list-style: none;
+}
+
+
+.controls-wrapper ul li  {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-right: 300px;
+  line-height: 1.5;
 }
 
 
@@ -97,17 +111,17 @@ h1 {
   
 }
 
-.topRow div {
+/* .topRow div {
   border: 5px transparent;
   border-radius: 50%;
   flex-grow: 1;
-  
-}
+   */
 
-/* .grid div:hover {
-  background-color: yellow;
+
+.topRow:hover {
+  background-color: white;
   border-radius: 50%;
-} */
+}
 
 .playerOneCoin {
   background: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/player1pinkball.png');
@@ -119,7 +133,7 @@ h1 {
 }
 
 .playerTwoCoin {
-  background: url('/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/earth-russia.png');
+  background-image: url('./media/earth-russia.png');
   border-radius: 50%;
   background-size: auto 100%;
   background-position: center;
@@ -131,12 +145,28 @@ h1 {
 /* GAMEOVER Z-INDEX POPUP WINDOW DIV */
 
 #gameover {
-  /* position: fixed; */
+    position: fixed;
+    z-index: 99;
+    top: 19%;
+    left: 27%;
+    width: 600px;
+    height: 350px;
+    background-color: pink;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  /* position: fixed;
   z-index: 99;
   height: 400px;
   width: 600px;
   background-color: pink;
-  /* background-image: url('/media/pink_lightning.gif'); */
+  background-image: url('/media/pink_lightning.gif');
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -144,8 +174,8 @@ h1 {
   align-items: center;
   text-align: center;
   opacity: 0;
-  box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19);
-}
+  box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19); */
+
 
 #gameover div {
   flex-direction: column;

@@ -9,17 +9,18 @@ function init() {
   // * Global Variables * //
 
   const grid = document.querySelector('.grid')
-  let playSounds = document.querySelectorAll('#div')
+  let playSounds = document.querySelectorAll('.topRow')
   // console.log(grid)
 
   
   const width = 7
   const height = 7
   const cellCount = width * height
-  const cells = []
+  let cells = []
   const isGameOver = document.querySelector('#gameover')
 
   const winnerIs = document.querySelector('#winner-status')
+  const resetGame = document.querySelectorAll('.reset')
   // const whoseGoIsIt = document.querySelector('#whosegoisit')
 
   const topRowClass = 'topRow'
@@ -206,26 +207,42 @@ function init() {
 
   function playDropSound(event) {
 
-    audio.src = '/media/Water-Bloop-2CloseDistance-www.FesliyanStudios.com.mp3'
-    // audio.play()
+    audio.src = '/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/over.wav'
+    audio.play()
+  }
+
+  function resetPage() {
+    // console.log('click')
+    // currentPlayer = 'playerOneCoin'
+    // console.log(currentPlayer)
+    // // cells[cell].classList.remove('playerOneCoin')
+    // cells.forEach(cell => {
+    //   cell.classList.remove('playerOneCoin')
+    // })
+    // cells.forEach(cell => {
+    //   cell.classList.remove('playerTwoCoin')
+    // })
+    // cells = []
+    // createGrid()
+    location.reload()
   }
 
 
-  function handleCellMouseOver(event) {
-    const currentPosition = event.target.innerHTML
-    console.log(currentPosition)
-    if (topRow.includes(currentPosition)) {
-    cells[currentPosition].classList.add(currentPlayer)
-    }
+  // function handleCellMouseOver(event) {
+  //   const currentPosition = event.target.innerHTML
+  //   console.log(currentPosition)
+  //   if (topRow.includes(currentPosition)) {
+  //   cells[currentPosition].classList.add(currentPlayer)
+  //   }
 
-  }
+  // }
   
 
-  function handleCellMouseLeave(event) {
-    console.log(event.target.innerHTML)
-    const currentPosition = event.target.innerHTML
-    cells[currentPosition].classList.remove(currentPlayer)
-  }
+  // function handleCellMouseLeave(event) {
+  //   console.log(event.target.innerHTML)
+  //   const currentPosition = event.target.innerHTML
+  //   cells[currentPosition].classList.remove(currentPlayer)
+  // }
   // * event listener click - column 0 - 6 - loop through all cells in column from bottom upwards, until div/cell has no class. then assign that cell to currentPlayer colour, (class & style) * //
 
   function handlePlayerSelectsColumn(event) {
@@ -287,14 +304,16 @@ function init() {
   createGrid()
 
   // * Event listeners * //
-  playSounds.forEach(btn => {
-    btn.addEventListener('click', playAudio)
-  })
+  playSounds.forEach(cell => cells[cell].addEventListener('click', playAudio)
+  )
 
   // cells.addEventListener('mouseover', handleCellMouseOver)
-  topRow.forEach(cell => cells[cell].addEventListener('mouseover', handleCellMouseOver))
-  topRow.forEach(cell => cells[cell].addEventListener('mouseleave', handleCellMouseLeave))
+  // topRow.forEach(cell => cells[cell].addEventListener('mouseover', handleCellMouseOver))
+  // topRow.forEach(cell => cells[cell].addEventListener('mouseleave', handleCellMouseLeave))
   topRow.forEach(cell => cells[cell].addEventListener('click', handlePlayerSelectsColumn))
+  resetGame.forEach(button => {
+    button.addEventListener('click', resetPage)
+  })
 
 }
 
