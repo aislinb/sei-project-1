@@ -9,6 +9,7 @@ function init() {
   // * Global Variables * //
 
   const grid = document.querySelector('.grid')
+  let playSounds = document.querySelectorAll('#div')
   // console.log(grid)
 
   
@@ -203,11 +204,11 @@ function init() {
 
   // * what to do when game is won * //
 
-  // function playDropSound(event) {
-    // start - drop Audio.src = "dhgfgh'"
-    // dropAudio.play
-    // (audio tag in elementS)
-  // }
+  function playDropSound(event) {
+
+    audio.src = '/media/Water-Bloop-2CloseDistance-www.FesliyanStudios.com.mp3'
+    // audio.play()
+  }
 
 
   function handleCellMouseOver(event) {
@@ -272,9 +273,7 @@ function init() {
     // part two of the selectsColumn function is the ternary - asking if currentPlayer equals playeroneCoin, and if so to flip to playerTwo (and vice versa):
 
     cells[cellToFill].classList.add(currentPlayer)
-    ////*audio.play()
-
-
+    audio.play() 
     checkHorizontalWin()
     checkVerticalWin()
     // checkDiagonalWin()
@@ -288,6 +287,9 @@ function init() {
   createGrid()
 
   // * Event listeners * //
+  playSounds.forEach(btn => {
+    btn.addEventListener('click', playAudio)
+  })
 
   // cells.addEventListener('mouseover', handleCellMouseOver)
   topRow.forEach(cell => cells[cell].addEventListener('mouseover', handleCellMouseOver))
