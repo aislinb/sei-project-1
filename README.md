@@ -27,6 +27,7 @@ We were assigned an individual project with the goal of building a single-page g
 * JavaScript (ES6)
 * HTML5
 * CSS3
+
 **Dev Tools:**
 * VSCode
 * Eslint
@@ -166,10 +167,14 @@ function handlePlayerSelectsColumn(event) {
 
 ```
 
+### Screenshots
+**Work In Progress:**
+![Work In Progress Example](./media/work-in-prog.png)
+
 ### Methods
 I found it really helpful annotating my work and code as I went, in order to get to grips with the logic more easily:
 
-![](Screenshot%202021-02-23%20at%2012.32.44.png)
+![Annotated Code Example](./media/annotated-code.png)
 
 ### Challenges Overcome
 * The biggest challenge here was the logic that “fills in” a cell in the grid with a coin, in order for them to be able to stack on top of one another properly. 
