@@ -172,17 +172,17 @@ I found it really helpful annotating my work and code as I went, in order to get
 ### Challenges Overcome
 * The biggest challenge here was the logic that “fills in” a cell in the grid with a coin, in order for them to be able to stack on top of one another properly. 
 * The win check also posed some confusion - with the horizontal and vertical wins being much simpler to figure out than the diagonal. 
-* When testing out a "Player X wins!" popup, I had inadvertently intorduced a bug which meant that only the first two columns were able to be selected by a player. This was due to using a shortcut 'z-index: 99' which I then had to remove. Below is a screenshot (styling still in progress..!) of the #gameover winner's popup:
+* When testing out a "Player X wins!" popup, I had inadvertently introduced a bug which meant that only the first two columns were able to be selected by a player. This was due to using a shortcut 'z-index: 99' which I then had to remove. Below is a screenshot (styling still in progress..!) of the #gameover winner's popup:
 
 ![Gameover Popup](./media/gameover-popup.png)
 
 ### Wins
-* Using an event listener for the coin dropping sound was a satisfying achievement
+* Using an event listener for the coin dropping sound was a satisfying achievement.
 ### Key Learnings
-* I definitely had many breakthrough moments during this week and although the project was missing some styling and  animation features I had wanted to implement I made some real progression with DOM manipulation. 
-* Not to make too many changes right at the last minute - as something (inevitably) went wrong and I ended up breaking my game shortly before presentation! 
-* The most important takeaway from this was that using pseudocode, annotating my code, and DELETING CODE are all helpful and acceptable ways of developing a project. This project was all about trial and error and being comfortable with breaking the functionality over and over again! 
+* I definitely had many breakthrough moments during this week and although the project was missing some styling and  animation features I had wanted to implement, I made some real progression with DOM manipulation. 
+* Not to make any fundamental changes right at the last minute - as something (inevitably) goes wrong. I learnt this the hard way and ended up breaking my game's functionality shortly before presentation! 
+* The most important takeaway from this was that using pseudocode, annotating my progress, and DELETING CODE are all helpful and acceptable ways of developing a project. This project was all about trial and error and being comfortable with breaking the functionality.. over and over again! 
 
 ### Future Additions
 * There were a number of features I didn't manage to implement, but the one I wanted to add the most was making the coins fall smoothly through the columns as they would in a real-life game. 
-* Another feature would be to add a single-player feature where a user can play against the computer 
+* Another feature would be to add a single-player feature where a user can play against the computer.
