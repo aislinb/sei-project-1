@@ -9,6 +9,7 @@ function init() {
   // * Global Variables * //
 
   const grid = document.querySelector('.grid')
+  const audio = document.querySelector('#audio')
   let playSounds = document.querySelectorAll('.topRow')
   // console.log(grid)
 
@@ -152,15 +153,15 @@ function init() {
       console.log('win')
       isEndGame()
     } else {
-        currentSquare = latestDrop - 1
-        while (cells[currentSquare].classList.contains(currentPlayer)) {
-          counter++
-          currentSquare--
-        }
-        if (counter >= 4) {
-          console.log('win')
-          isEndGame()
-        }
+      currentSquare = latestDrop - 1
+      while (cells[currentSquare].classList.contains(currentPlayer)) {
+        counter++
+        currentSquare--
+      }
+      if (counter >= 4) {
+        console.log('win')
+        isEndGame()
+      }
     }
   }
 
@@ -183,7 +184,7 @@ function init() {
   }
 
   // function checkDiagonalWin() {
-    // If the box to the right has a classlist of the current player then check the box to the right of it.
+  // If the box to the right has a classlist of the current player then check the box to the right of it.
   //   let currentSquare = latestDrop
   //   let counter = 0
   //   console.log(currentSquare, cells.length)
@@ -207,7 +208,7 @@ function init() {
 
   function playDropSound(event) {
 
-    audio.src = '/Users/aislinbamber/SEI/development/PROJECTS/sei-project-1/media/over.wav'
+    audio.src = './media/over.wav'
     audio.play()
   }
 
@@ -304,7 +305,7 @@ function init() {
   createGrid()
 
   // * Event listeners * //
-  playSounds.forEach(cell => cells[cell].addEventListener('click', playAudio)
+  playSounds.forEach(cell => cells[cell].addEventListener('click', playDropSound)
   )
 
   // cells.addEventListener('mouseover', handleCellMouseOver)

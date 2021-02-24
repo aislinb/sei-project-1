@@ -132,7 +132,7 @@ list-style: none;
 
 /* GAMEOVER Z-INDEX POPUP WINDOW DIV */
 
-#gameover {
+/* #gameover {
     position: fixed;
     z-index: 99;
     top: 19%;
@@ -147,12 +147,12 @@ list-style: none;
     align-items: center;
     text-align: center;
     opacity: 0;
-    box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 2px 8px 8px 0 rgba(0, 0, 0, 0.2), 2px 8px 20px 0 rgba(0, 0, 0, 0.19); */
     /* background-image: url('..media/cloudsbackgroundabagg.jpg');
     background-size: auto 100%;
     background-position: center; */
 
-  }
+  /* } */
   /* position: fixed;
   z-index: 99;
   height: 400px;
@@ -176,22 +176,20 @@ list-style: none;
 
 } */
 
-
-#gameover div {
-  /* display: flex;
-  
+/* #gameover div {
+  display: flex;
   background-color: white;
   border-radius: 50%;
-  /* background-size: auto 100%;
-  background-position: center; */
-  /* color: white; */ 
+  background-size: auto 100%;
+  background-position: center;
+  color: white; 
   display: flex;
   width: 100px;
   height: 100px;
   margin: 10px;
-  /* border: 3px solid;
-  border-radius: 4px; */
-  /* background-color: white; */
+  border: 3px solid;
+  border-radius: 4px;
+  background-color: white;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -204,7 +202,8 @@ list-style: none;
   text-overflow: ellipsis;
   text-align: center;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-}
+} */
+
 
 
 

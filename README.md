@@ -20,7 +20,10 @@ We were assigned an individual project with the goal of building a single-page g
 * Deploy your game online, using Github Pages, where the rest of the world can access it
 * Use semantic markup for HTML and CSS
 
-
+**Requirements Specific to Connect-4:**
+* The game should be playable for two players on the same computer, taking turns to make their moves
+* The winner should be displayed when the game is over
+* The game cannot be built with Canvas
 ### Technologies Used
 
 **Front-End:**
@@ -38,7 +41,7 @@ We were assigned an individual project with the goal of building a single-page g
 
 ### How To Install
 1. Clone or download the repo from GitHub onto your machine.
-2. Open index.html file in your Chrome browser
+2. Open index.html file in your browser
 
 ### Concept 
 Connect 4 was one of my favourite games as a child so I decided to build this for my first project in the course. As the game is two player and built on a simple single-page application, users take it in turns to select a column in which to drop their coins, until either the board is full or a player has succeeded in connecting 4 coins either in a row, column or horizontal line. 
@@ -56,7 +59,8 @@ Simple page setup up with:
 * Winner status
 ```
 
-First I established the grid in the App.js file to show a seven by seven connect 4 frame:
+### Process:
+First I established the grid in the App.js file to show a seven by seven connect 4 frame. The connect-4 board is 7 columns by 6 rows, and there was an added top row for displaying the coin when the user selects a column, therefore generating 49 cells in total:
 
 ```
 const grid = document.querySelector('.grid')
@@ -74,21 +78,6 @@ const grid = document.querySelector('.grid')
   const resetGame = document.querySelectorAll('.reset')
   // const whoseGoIsIt = document.querySelector('#whosegoisit')
 
-  const topRowClass = 'topRow'
-  const rowOneClass= 'rowOne'
-  const rowTwoClass= 'rowTwo'
-  const rowThreeClass= 'rowThree'
-  const rowFourClass= 'rowFour'
-  const rowFiveClass= 'rowFive'
-  const rowSixClass= 'rowSix'
-
-  const column0Class = 'column0'
-  const column1Class = 'column1'
-  const column2Class = 'column2'
-  const column3Class = 'column3'
-  const column4Class = 'column4'
-  const column5Class = 'column5'
-  const column6Class = 'column6'
 
 function createGrid() {
     for (let i=0; i < cellCount; i++) {
@@ -106,7 +95,7 @@ function createGrid() {
 
 ```
 
-The handlePlayerSelection function was a tricky one to establish as every time a coin was “dropped”, I needed to ‘pop’ that cell off the array in order for it do be represented as “taken”:
+The handlePlayerSelection function was a tricky one to establish as every time a coin was “dropped”, I needed to "pop" that cell off the array in order for it do be represented as “taken”:
 
 ```
 function handlePlayerSelectsColumn(event) {
@@ -167,6 +156,10 @@ function handlePlayerSelectsColumn(event) {
 
 ```
 
+I then was able to present the cells in the grid as "taken" using CSS:
+
+![Stacking Coins Progression](./media/progression-coins.png)
+
 ### Screenshots
 **Work In Progress:**
 ![Work In Progress Example](./media/work-in-prog.png)
@@ -178,10 +171,18 @@ I found it really helpful annotating my work and code as I went, in order to get
 
 ### Challenges Overcome
 * The biggest challenge here was the logic that “fills in” a cell in the grid with a coin, in order for them to be able to stack on top of one another properly. 
-* The win check also posed some confusion - with the horizontal and vertical wins being much simpler to figure out than the vertical. 
+* The win check also posed some confusion - with the horizontal and vertical wins being much simpler to figure out than the diagonal. 
+* When testing out a "Player X wins!" popup, I had inadvertently intorduced a bug which meant that only the first two columns were able to be selected by a player. This was due to using a shortcut 'z-index: 99' which I then had to remove. Below is a screenshot (styling still in progress..!) of the #gameover winner's popup:
 
+![Gameover Popup](./media/gameover-popup.png)
+
+### Wins
+* Using an event listener for the coin dropping sound was a satisfying achievement
 ### Key Learnings
 * I definitely had many breakthrough moments during this week and although the project was missing some styling and  animation features I had wanted to implement I made some real progression with DOM manipulation. 
 * Not to make too many changes right at the last minute - as something (inevitably) went wrong and I ended up breaking my game shortly before presentation! 
+* The most important takeaway from this was that using pseudocode, annotating my code, and DELETING CODE are all helpful and acceptable ways of developing a project. This project was all about trial and error and being comfortable with breaking the functionality over and over again! 
 
-
+### Future Additions
+* There were a number of features I didn't manage to implement, but the one I wanted to add the most was making the coins fall smoothly through the columns as they would in a real-life game. 
+* Another feature would be to add a single-player feature where a user can play against the computer 
