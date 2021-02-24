@@ -1,6 +1,6 @@
 # 🟡*CONNECT-4*🔴
 
-This was my first project for General Assembly’s Software Engineering Immersive course. Working solo after just 2 weeks of learning to code, we had ten days to build a game in a single-page front-end using Vanilla Javascript, HTML and CSS. 
+This was my first project for General Assembly’s Software Engineering Immersive course. Working solo after just 2 weeks of learning to code, we had ten days to build a game in a single-page front-end using Vanilla JavaScript, HTML and CSS. 
 
 **[Full page screenshot]**
 
@@ -16,11 +16,11 @@ We were assigned an individual project with the goal of building a single-page g
 * Render a game in the browser
 * Design logic for winning & visuals display which player won
 * Include separate HTML, CSS and JavaScript files
-* Use Javascript for DOM manipulation
+* Use JavaScript for DOM manipulation
 * Deploy your game online, using Github Pages, where the rest of the world can access it
 * Use semantic markup for HTML and CSS
 
-**Requirements Specific to Connect-4:**
+**Specific Requirements to Connect-4:**
 * The game should be playable for two players on the same computer, taking turns to make their moves
 * The winner should be displayed when the game is over
 * The game cannot be built with Canvas
@@ -40,11 +40,11 @@ We were assigned an individual project with the goal of building a single-page g
 * Google Fonts
 
 ### How To Install
-1. Clone or download the repo from GitHub onto your machine.
+1. Clone or download the repo from GitHub onto your machine
 2. Open index.html file in your browser
 
 ### Concept 
-Connect 4 was one of my favourite games as a child so I decided to build this for my first project in the course. As the game is two player and built on a simple single-page application, users take it in turns to select a column in which to drop their coins, until either the board is full or a player has succeeded in connecting 4 coins either in a row, column or horizontal line. 
+Connect-4 was one of my favourite games as a child so I decided to build this for my first project during the course. As the game is two player and built on a simple single-page application, users take it in turns to select a column in which to drop their coins, until either the board is full or a player has succeeded in connecting four coins either in a row, column or diagonal line. 
 
 ### Wireframe:
 
@@ -60,7 +60,7 @@ Simple page setup up with:
 ```
 
 ### Process:
-First I established the grid in the App.js file to show a seven by seven connect 4 frame. The connect-4 board is 7 columns by 6 rows, and there was an added top row for displaying the coin when the user selects a column, therefore generating 49 cells in total:
+First I established the grid in the App.js file to show a seven by seven connect-4 frame. The connect-4 board is 7 columns by 6 rows, and there was an added top row for displaying the coin when the user selects a column, therefore generating 49 cells in total:
 
 ```
 const grid = document.querySelector('.grid')
@@ -95,7 +95,7 @@ function createGrid() {
 
 ```
 
-The handlePlayerSelection function was a tricky one to establish as every time a coin was “dropped”, I needed to "pop" that cell off the array in order for it do be represented as “taken”:
+The handlePlayerSelection function was a tricky one to establish as every time a coin was “dropped”, I needed to "pop" that cell off the array in order for it do be represented as filled:
 
 ```
 function handlePlayerSelectsColumn(event) {
@@ -171,7 +171,7 @@ I found it really helpful annotating my work and code as I went, in order to get
 
 ### Challenges Overcome
 * The biggest challenge here was the logic that “fills in” a cell in the grid with a coin, in order for them to be able to stack on top of one another properly. 
-* The win check also posed some confusion - with the horizontal and vertical wins being much simpler to figure out than the diagonal. 
+* The win check also posed some confusion, with the horizontal and vertical wins being much simpler to figure out than the diagonal. 
 * When testing out a "Player X wins!" popup, I had inadvertently introduced a bug which meant that only the first two columns were able to be selected by a player. This was due to using a shortcut 'z-index: 99' which I then had to remove. Below is a screenshot (styling still in progress..!) of the #gameover winner's popup:
 
 ![Gameover Popup](./media/gameover-popup.png)
