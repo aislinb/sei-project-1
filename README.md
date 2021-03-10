@@ -2,8 +2,6 @@
 
 This was my first project for General Assembly’s Software Engineering Immersive course. Working solo after just 2 weeks of learning to code, we had ten days to build a game in a single-page front-end using Vanilla JavaScript, HTML and CSS. 
 
-**[Full page screenshot]**
-
 ### Deployment
 
 This website was deployed using GitHub pages.
